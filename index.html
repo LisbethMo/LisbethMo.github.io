@@ -181,7 +181,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -191,7 +191,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -214,6 +214,166 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/初识-CSS/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lisbeth Mo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/04/初识-CSS/" itemprop="url">初识-CSS</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-04T23:12:11+08:00">
+                2017-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>终于学到了 CSS 篇，据说 CSS 是前端学习中最难学的部分。起初不信，接触了一些之后，发现真的是这样。CSS 的知识，太杂，太乱，往往你在更改了一个东西之后，其他部分都要做相当大范围的修改，牵一发而动全身。<br>先来说说 CSS 的历史：</p>
+<pre><code>- 1994 年，哈肯·维姆·莱提出了 CSS 的最初建议，伯特·波斯当时在设计一个叫做&quot;Arog&quot;的浏览器，他们决定一起合作设计 CSS。
+- 1997 年初，W3C 内组织了专门管 CSS 的工作组，其负责人是克里斯·里雷。
+- 1998 年 5 月， W3C 发表了 CSS2。其后发表了 CSS 2.1，CSS 2.1 修改了 CSS2 中的一些错误，删除了其中基本不被支持的内容，增加了一些已有的浏览器的扩展内容。
+- 从 2011 年开始，CSS 被分为多个模块单独升级，统称为 CSS3。
+</code></pre><p>在老师的带领下，想用 CSS 做一个简历。这对于目前初学阶段的我来说，是一个比较大的工程，于是把简历分开，一部分一部分地做。<br>1、首先要做一个导航栏</p>
+<pre><code>- 做导航栏，首先要知道如何做横向布局。为了让元素横向排列，我们给所有的子元素添加float属性，但是使用float属性，一定会有bug。所以我们要创建一个clearfix的类，然后把这个类添加到所有浮动元素的父元素身上。clearfix代码如下
+- .clearfix::after{
+content: &apos;&apos;;
+display: block;
+clear: both;
+  }
+- 然后我们就要进行取色、量尺寸之类的工作，这个时候就要用到各种工具。所以选择一个好的工具，可以为你前端工作省力不少。
+- 其中我们需要使用开发者工具查看元素样式属性，如何查看呢？
+- 查看一个元素的默认属性，就选中这个元素，在工具右边选择Computed，这表示计算出来的样式属性。
+- 通常，页面的默认字体大小是 16px，a 标签的默认取值是underline。
+- 其中，a 标签的悬停浮动，为了让画面不抖动，要提前给 a 标签加一个透明边框。
+- 在选择悬停效果的时候，没有办法维持它，就在开发者工具里面找到这个元素，勾上 hover，让它强制悬停。
+- 发现 li 标签里的 a 元素的上下宽度比 li 的大，那么就给 a 标签加一个 display:block;
+</code></pre><p>以上是我做导航栏时候碰到的需要注意的问题，以及解决的办法。<br>2、制作logo</p>
+<pre><code>- a 标签的默认颜色是蓝色，一般会使用 a {color: inherit;}，让它继承父元素的颜色。
+- &lt;span&gt;和&lt;span&gt;之间，如果有回车，那浏览器中就会显示空格，而且只显示一个空格。
+- 因为导航栏和logo要同时设置上面的空白大小，所以要把导航栏和logo平齐
+- 浏览器会给很多元素加很多默认属性，所以如果这个妨碍到你，就要提前把他们全部变成0，方便你调布局。
+</code></pre><p>做完导航和logo之后，准备做中间的一张大名片，这个时候，我们需要了解 CSS的布局和定位，这应该是 CSS 的重中之重了，如果这个学不好，接下去会非常困难。<br>3、一个元素的高度由什么决定？</p>
+<pre><code>- 首先，文档流是什么：文档流就是文档内元素流动的方向。
+- 内联元素是从左往右流动，不够的话就另起一行继续流动。
+- 块级元素是每一块都占一行，从上往下流动。
+- 如果内联元素有一个border，流动的时候如果超出了范围，这个元素不会出现两个border，只会分成两块。
+- 如果内联元素是一个很长的英文单词，它只会占据一行，不会被截断，如果想将其截断，那么我们要用到一个叫 word-break 的属性。
+- 一般用到这个属性，我们会取两个值：一个是break-all，一个是break-word。如果是中文为主的网站，我们推荐用break-all。
+- 为了让两个块级元素在一行，我们就用float属性。但是有些开发者并不会用这个，于是 CSS3 出了一个display:inline-block属性
+- 内联元素的高度，与字体有关，可以手动设置行高line-height
+- font-size 的数字是指这个字体里最高的一点到这个字体最低的一点的距离
+- span 的高度会加上字体的建议行高
+- line-height 的值是多少像素，那么span所占的高度就是多少
+</code></pre><p>还有几个需要注意的点：</p>
+<pre><code>- 不到万不得已，不要使用height以及width:100%属性
+- 一旦你脱离了文档流，你的父元素的高度就不包括你了
+- 如果一个元素是fixed定位的，它的宽度就不会向外生
+</code></pre><p>总之，CSS 真的是又杂又乱，要真正学好 CSS，可能只能通过不断练习，不断总结才行。这就是我对 CSS 的初步认知</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -257,7 +417,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-29T02:08:04+08:00">
                 2017-11-29
@@ -478,7 +638,7 @@ iframe 标签与 a 标签结合用的比较多，现在先介绍一下 a 标签
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-24T01:36:11+08:00">
                 2017-11-24
@@ -642,7 +802,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-16T03:49:58+08:00">
                 2017-11-16
@@ -802,7 +962,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T22:23:44+08:00">
                 2017-11-14
@@ -922,7 +1082,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T19:57:50+08:00">
                 2017-11-14
@@ -1042,7 +1202,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-14T19:52:25+08:00">
                 2017-11-14
@@ -1174,8 +1334,8 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
-                  <span class="site-state-item-name">Artikel</span>
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">posts</span>
                 </a>
               </div>
             
@@ -1227,7 +1387,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
 </div>
 
 
-  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
