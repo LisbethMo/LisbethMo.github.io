@@ -228,6 +228,178 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/24/浅谈-DOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lisbeth Mo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="My Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/05/24/浅谈-DOM/" itemprop="url">浅谈 DOM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-05-24T15:47:32+08:00">
+                2018-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h6 id="1、什么是-DOM？"><a href="#1、什么是-DOM？" class="headerlink" title="1、什么是 DOM？"></a>1、什么是 DOM？</h6><p>DOM 全称是 文档对象模型，是HTML 和 XML 文档的编程接口。它提供了对文档的结构化的表述，并定义了一种方式，这种方式可以使从程序中对该结构进行访问，从而改变文档的结构，样式和内容。DOM 将 文档解析为一个由节点和对象（包含属性和方法的对象）组成的结构集合。简言之，它会将web 页面和脚本或程序语言连接起来。</p>
+<p>一个web页面是一个文档。这个文档可以在浏览器窗口或作为HTML源码显示出来。但上述两个情况中都是同一份文档。文档对象模型（DOM）提供了对同一份文档的另一种表现，存储和操作方式。DOM 是web页面的完全的面向对象表述，它能够使用如JavaScript等脚本语言进行修改。</p>
+<p>文档对象模型（DOM）将 web 页面与脚本或编程语言连接起来。通常这个编程语言是指JavaScript，但将 HTML、SVG 或 XML 文档建模为对象并不是JavaScript语言的一部分。DOM 模型用一个逻辑树来表示一个文档，树的每个分支的终点都是一个节点（node），每个节点都包含着对象（objects）。DOM 的方法（methods）让你可以用特定方式操作这个树，用这些方法你可以改变文档的结构、样式或内容。节点可以关联上事件处理器，一旦某一事件被触发了，那些事件处理器就会被执行。</p>
+<h6 id="2、DOM-和-JavaScript-的关系"><a href="#2、DOM-和-JavaScript-的关系" class="headerlink" title="2、DOM 和 JavaScript 的关系"></a>2、DOM 和 JavaScript 的关系</h6><p>很多示例虽然是用JavaScript编写的，却可以通过 DOM 来访问文档和其中的元素。DOM 并不是一个编程语言，但是如果没有 DOM，JavaScript语言也不会有任何网页，XML 页面以及涉及到元素的概念或模型。在文档中的每个元素——包括整个文档，文档头部，文档中的表格，表头，表格中的文本，都是文档所属于的文档对象模型（DOM）的一部分，因此它们可以使用 DOM 和一个脚本语言如 JavaScript 来访问处理。</p>
+<p>最开始的时候，JavaScript 和 DOM 是交织在一起，但是他们最终演变成了两个独立的实体。JavaScript可以访问和操作存储在 DOM 中的内容，因此我们可以写成这个近似的等式：<br>$$<br>API（Web 或 XML 页面）= DOM + JS（脚本语言）<br>$$</p>
+<h6 id="3、如何访问-DOM-？"><a href="#3、如何访问-DOM-？" class="headerlink" title="3、如何访问 DOM ？"></a>3、如何访问 DOM ？</h6><p>在使用 DOM 时，您不需要做任何其他特殊的操作。不同的浏览器都有对 DOM 不同的实现，这些实现对当前的DOM标准而言，都会呈现出不同程度的一致性，每个 Web 浏览器都会使用一些文档对象模型，从而使页面可以被脚本语言访问。</p>
+<h6 id="4、重要的数据类"><a href="#4、重要的数据类" class="headerlink" title="4、重要的数据类"></a>4、重要的数据类</h6><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document</td>
+<td>当一个成员返回 document 对象，这个对象就是 document 对象本身。</td>
+</tr>
+<tr>
+<td>element</td>
+<td>element 是指由 DOM API 中成员返回的类型为 element 的一个元素或节点。</td>
+</tr>
+<tr>
+<td>nodeList</td>
+<td>nodeList 是一个元素的数组。</td>
+</tr>
+<tr>
+<td>attribute</td>
+<td>当 attribute 通过成员函数返回时，它是一个为属性暴露出专门接口的对象引用。</td>
+</tr>
+<tr>
+<td>namedNodeMap</td>
+<td>namedNodeMap 和数组类似，但是条目是由 name 或 index 访问的，虽然后一种方式仅仅是为了枚举方便，因为在 list 中本来就没有特定的顺序。出于这个目的，namedNodeMap 有一个 item() 方法，你也可以从 namedNodeMap 添加或删除条目。</td>
+</tr>
+</tbody>
+</table>
+<h6 id="5、DOM-接口"><a href="#5、DOM-接口" class="headerlink" title="5、DOM 接口"></a>5、DOM 接口</h6><p>在 DOM 编程时，通常使用的最多的就是 Document 和 window 对象。简单的说，window 对象表示浏览器中的内容，document 对象是文档本身的根节点。下面是一些常用的接口：</p>
+<ul>
+<li>document.getElementById(id)</li>
+<li>document.getElementsByTagName(name)</li>
+<li>document.createElement(name)</li>
+<li>parentNode.appendChild(node)</li>
+<li>element.innerHTML</li>
+<li>element.style.left</li>
+<li>element.setAttribute()</li>
+<li>element.getAttribute()</li>
+<li>element.addEventLIsterner()</li>
+<li>window.content</li>
+<li>window.onload</li>
+<li>window.dump()</li>
+<li>window.scrollTo()</li>
+</ul>
+<p>以上，就是我初步涉及 DOM 时知道的一些东西了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/04/初识-CSS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1334,7 +1506,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1377,7 +1549,7 @@ W3C 网站的标准文档以及 MDN 的相关文档，发现除去那些已经�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
